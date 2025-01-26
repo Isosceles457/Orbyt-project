@@ -1,0 +1,175 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #155d86;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-buttons .btn {
+    background-color: #ff9d05;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.cta-buttons .btn:hover {
+    background-color: #f03c22;
+}
+
+/* Sección de características */
+.features {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.feature {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 16px;
+}
+
+/* Sección de testimonios */
+.testimonials {
+    background-color: #27394d;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.testimonials p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Llamada a la acción */
+.cta {
+    background-color: #ff9d05;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.cta .btn {
+    background-color: #155d86;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.cta .btn:hover {
+    background-color: #27394d;
+}
+
+/* Pie de página */
+footer {
+    background-color: #27394d;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    color: #ff9d05;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+    }
+
+    .cta .btn {
+        font-size: 16px;
+    }
+}

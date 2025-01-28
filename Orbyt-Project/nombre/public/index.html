@@ -4,16 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a "nombre" - Organiza tu vida</title>
+    <title>Bienvenido a Orbyt - Organiza tu vida</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Encabezado -->
     <header>
-        <div class="container">
-            <h1>nombre</h1>
-            <p>La plataforma integral para gestionar tus notas, tareas, finanzas y recordatorios.</p>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Orbyt</h1>
+            </div>
+            <nav class="nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#estadisticas">Estadísticas</a></li>
+                    <li><a href="#como-funciona">Cómo Funciona</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
             <div class="cta-buttons">
                 <a href="./views/register.html" class="btn">Regístrate</a>
                 <a href="./views/login.html" class="btn">Iniciar sesión</a>
@@ -21,56 +31,117 @@
         </div>
     </header>
 
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="text-content">
+                <h1>Organiza tu universo con Orbyt</h1>
+                <p>Gestiona tus notas, tareas, finanzas y recordatorios de manera sencilla, todo en un solo lugar.</p>
+                <div class="cta-buttons">
+                    <a href="./views/register.html" class="btn-primary">Comienza ahora</a>
+                    <a href="#features" class="btn-secondary">Descubre más</a>
+                </div>
+            </div>
+            <div class="graphic">
+                <img style="filter: blur(8px);" src="./assets/galaxy-svgrepo-com.svg" alt="Ilustración de galaxia">
+            </div>
+        </div>
+    </section>
+
     <!-- Características principales -->
-    <section id="caracteristicas" class="features">
+    <section id="features" class="features">
         <div class="container">
             <h2>Características Principales</h2>
             <div class="feature-list">
                 <div class="feature">
-                    <h3>Notas</h3>
+                    <h3><i class="fas fa-sticky-note" aria-hidden="true"></i> Notas</h3>
                     <p>Organiza tus ideas y guarda notas rápidas en un solo lugar.</p>
                 </div>
                 <div class="feature">
-                    <h3>Horarios y Tareas</h3>
+                    <h3><i class="fas fa-calendar-check" aria-hidden="true"></i> Horarios y Tareas</h3>
                     <p>Gestiona tu tiempo y nunca olvides tus tareas y metas.</p>
                 </div>
                 <div class="feature">
-                    <h3>Finanzas Personales</h3>
+                    <h3><i class="fas fa-wallet" aria-hidden="true"></i> Finanzas Personales</h3>
                     <p>Controla tus ingresos y gastos para mantener tus finanzas saludables.</p>
                 </div>
                 <div class="feature">
-                    <h3>Recordatorios</h3>
+                    <h3><i class="fas fa-bell" aria-hidden="true"></i> Recordatorios</h3>
                     <p>No olvides tus actividades de ocio y tus metas personales.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section id="testimonios" class="testimonials">
+    <!-- Estadísticas -->
+    <section id="estadisticas" class="statistics">
         <div class="container">
-            <h2>Lo que dicen nuestros usuarios</h2>
-            <p>"¡Esta aplicación me ha ayudado a ser mucho más productivo y organizado!" - Usuario 1</p>
-            <p>"Ahora llevo un control claro de mis tareas y finanzas, ¡es justo lo que necesitaba!" - Usuario 2</p>
+            <h2>Nuestros Logros</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3><i class="fas fa-users" aria-hidden="true"></i> 10,000+</h3>
+                    <p>Usuarios activos</p>
+                </div>
+                <div class="stat">
+                    <h3><i class="fas fa-smile" aria-hidden="true"></i> 95%</h3>
+                    <p>Satisfacción del usuario</p>
+                </div>
+                <div class="stat">
+                    <h3><i class="fas fa-file-alt" aria-hidden="true"></i> 50,000+</h3>
+                    <p>Notas guardadas</p>
+                </div>
+                <div class="stat">
+                    <h3><i class="fas fa-check-circle" aria-hidden="true"></i> 5,000+</h3>
+                    <p>Tareas completadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <h2>¿Cómo funciona Orbyt?</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3><i class="fas fa-user-plus" aria-hidden="true"></i> 1. Regístrate</h3>
+                    <p>Crea una cuenta para empezar a organizarte.</p>
+                </div>
+                <div class="step">
+                    <h3><i class="fas fa-cogs" aria-hidden="true"></i> 2. Configura</h3>
+                    <p>Personaliza tu tablero con notas, tareas y más.</p>
+                </div>
+                <div class="step">
+                    <h3><i class="fas fa-tasks" aria-hidden="true"></i> 3. Organízate</h3>
+                    <p>Controla tus metas y actividades con facilidad.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Llamada a la acción -->
     <section id="cta" class="cta">
         <div class="container">
-            <h2>Comienza ahora y organiza tu vida</h2>
-            <a href="#registro" class="btn">Regístrate gratis</a>
+            <h2>¡Da el primer paso hacia una vida más organizada!</h2>
+            <p>Únete a miles de usuarios que ya están alcanzando sus metas con Orbyt. No pierdas más tiempo, tu
+                productividad comienza aquí.</p>
+            <div class="cta-buttons">
+                <a href="#registro" class="btn btn-primary">Regístrate Gratis</a>
+                <a href="#features" class="btn btn-secondary">Descubre Más</a>
+            </div>
         </div>
     </section>
 
     <!-- Pie de página -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 nombre. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
+            <div class="footer-content">
+                <p>&copy; 2025 Orbyt. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </footer>

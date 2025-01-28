@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Orbyt</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+</head>
+<body>
+    <header>
+        <div class="dashboard-link">
+            <a href="dashboard.html">
+                <span class="back-arrow">&#8592;</span> Dashboard
+            </a>
+        </div>
+        <div class="logout">
+            <button>Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-container">
+            <h1>Perfil</h1>
+            <form class="profile-form" action="#" method="post">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="off">
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Apellido" autocomplete="off">
+
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" autocomplete="off">
+
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" placeholder="Correo" disabled>
+
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input type="date" id="fecha" name="fecha" disabled>
+
+                <button type="submit">Actualizar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

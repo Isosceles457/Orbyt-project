@@ -26,7 +26,7 @@ header .dashboard-link a {
 }
 
 header .dashboard-link .back-arrow {
-    font-size: 20px;
+    font-size: 24px;
     margin-right: 8px;
     transition: transform 0.3s ease;
 }
@@ -43,7 +43,7 @@ header .logout button {
     background-color: #004080;
     color: #fff;
     border: none;
-    padding: 8px 15px;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;

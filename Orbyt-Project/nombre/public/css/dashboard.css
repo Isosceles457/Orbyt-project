@@ -31,7 +31,7 @@ header .botones a {
 
 header .botones button {
     background-color: #004080;
-    color: white;
+    color: #fff;
     border: none;
     padding: 12px 20px;  
     margin-left: 10px;
@@ -50,6 +50,7 @@ main {
     display: flex;
     flex: 1;
     flex-direction: row-reverse; 
+    background: #004080
 }
 
 .sidebar {
@@ -61,7 +62,7 @@ main {
 
 .sidebar h2 {
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 24px;
     color: #001f3f;
 }
 
@@ -80,14 +81,24 @@ main {
     border-radius: 15px;
     margin-top: 35px;
     padding: 20px;
+    background-color: #f0e6ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content .estudios:hover,
+.content .economia:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); 
 }
 
 .content .estudios {
     background-color: #cbfdaa;
+    border: 3px solid #2f6a33;
 }
 
 .content .economia {
     background-color: #a0d0ff;
+    border: 3px solid #7db8e6;
 }
 
 .content .estudios button,

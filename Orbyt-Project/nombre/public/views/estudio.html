@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbyt - Módulo de Estudios</title>
+    <link rel="stylesheet" href="../css/modulo_estudios.css">
+</head>
+<body>
+    <header>
+        <div class="dashboard-link">
+            <a href="dashboard.html">
+                <span class="back-arrow">&#8592;</span> Dashboard
+            </a>
+        </div>
+        <div class="bienvenida">Usuario - Modulo de Estudio</div>
+        <div class="botones">
+            <a href="perfil.html">
+                <button>Perfil</button>
+            </a>
+            <button>Cerrar Sesión</button>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="estudios">
+                <h3>Tareas</h3>
+                <p>Este es el módulo de tareas, aquí puedes agregar y ver tus asignaciones pendientes para que no se te pase ninguna.</p>
+                <button data-target="modalGestionarTareas">Gestionar Tareas</button>
+                <button data-target="modalVerTareas">Ver Tareas</button>
+            </div>
+            <div class="horarios">
+                <h3>Horarios</h3>
+                <p>Este es el módulo de horarios, aquí podrás registrar tus asignaturas cursantes y las horas de tus materias.</p>
+                <button data-target="modalVerHorarios">Ver Horario</button>
+                <button data-target="modalModificarHorarios">Modificar Horario</button>
+            </div>
+            <div class="economia">
+                <h3>Eventos</h3>
+                <p>Este es el módulo de eventos, aquí podrás agregar, visualizar o eliminar eventos especiales que tengas, desde competencias deportivas hasta cumpleaños.</p>
+                <button data-target="modalModificarEventos">Modificar Eventos</button>
+                <button data-target="modalVerEventos">Ver Eventos</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Gestionar Tareas -->
+        <div id="modalGestionarTareas" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Gestionar Tareas</div>
+                <div class="modal-body">
+                    <p>Aquí puedes gestionar todas tus tareas.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Ver Tareas -->
+        <div id="modalVerTareas" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Ver Tareas</div>
+                <div class="modal-body">
+                    <p>Aquí puedes ver todas tus tareas asignadas.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Ver Horarios -->
+        <div id="modalVerHorarios" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Ver Horarios</div>
+                <div class="modal-body">
+                    <p>Aquí puedes ver tus horarios académicos.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Modificar Horarios -->
+        <div id="modalModificarHorarios" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Modificar Horarios</div>
+                <div class="modal-body">
+                    <p>Aquí puedes modificar tus horarios.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Modificar Eventos -->
+        <div id="modalModificarEventos" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Modificar Eventos</div>
+                <div class="modal-body">
+                    <p>Aquí puedes modificar tus eventos académicos.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para Ver Eventos -->
+        <div id="modalVerEventos" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Ver Eventos</div>
+                <div class="modal-body">
+                    <p>Aquí puedes ver todos tus eventos académicos.</p>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    </main>
+    <script src="../js/modulo_estudio.js"></script>
+</body>
+</html>

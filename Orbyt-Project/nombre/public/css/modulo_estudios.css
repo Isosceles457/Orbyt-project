@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #001f3f;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+header .dashboard-link a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+header .dashboard-link .back-arrow {
+    font-size: 24px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+header .dashboard-link:hover a {
+    font-size: 20px;
+}
+
+header .dashboard-link:hover .back-arrow {
+    transform: scale(1.2);
+}
+
+header .bienvenida {
+    font-size: 24px;
+    text-align: center;
+}
+
+header .botones a {
+    text-decoration: none;
+}
+
+header .botones button {
+    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .botones button:hover {
+    background-color: #0066cc;
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse;
+    background: #004080;
+}
+
+.content {
+    flex: 5;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+/* Estilos generales */
+.content .estudios,
+.content .economia,
+.content .horarios {
+    width: 30%;
+    height: 400px;
+    border-radius: 15px;
+    margin-top: 35px;
+    padding: 20px;
+    background-color: #f0e6ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content .estudios:hover,
+.content .economia:hover,
+.content .horarios:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.content h3 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content .estudios {
+    background-color: #cbfdaa;
+    border: 3px solid #2f6a33;
+}
+
+.content .economia {
+    background-color: #a0d0ff;
+    border: 3px solid #7db8e6;
+}
+
+.content .horarios {
+    background-color: #ffcccc;
+    border: 3px solid #e60000;
+}
+
+.content button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content button:hover {
+    background-color: #56e414;
+    transform: scale(1.1);
+}
+
+/* Estilo de los modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 600px;
+}
+
+.modal-header {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    margin-bottom: 15px;
+}
+
+.modal-close {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}

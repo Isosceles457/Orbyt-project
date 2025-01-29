@@ -29,7 +29,7 @@ header {
 header .dashboard-link a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
     transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
@@ -40,7 +40,7 @@ header .dashboard-link .back-arrow {
 }
 
 header .dashboard-link:hover a {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 header .dashboard-link:hover .back-arrow {
@@ -48,14 +48,14 @@ header .dashboard-link:hover .back-arrow {
 }
 
 header .logout button {
-    background-color: #7544f8;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
+    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header .logout button:hover {

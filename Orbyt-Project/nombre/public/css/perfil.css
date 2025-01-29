@@ -1,7 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #042d57;
+    background-color: #010426;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -13,7 +21,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #001f3f;
+    background-color: #02051b;
     color: #fff;
     height: 10%;
 }
@@ -40,7 +48,7 @@ header .dashboard-link:hover .back-arrow {
 }
 
 header .logout button {
-    background-color: #004080;
+    background-color: #7544f8;
     color: #fff;
     border: none;
     padding: 12px 20px;
@@ -64,58 +72,155 @@ main {
 }
 
 .profile-container {
-    background-color: #e0f7ff;
-    color: #042d57;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    position: relative;
+    width: 500px;
+    height: 650px;
+    background: #02051b;
+    border-radius: 50px 5px;
+    overflow: hidden;
+}
+
+
+/*luces*/
+.profile-container::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 650px;
+    background: linear-gradient(60deg, transparent, #3c45f0, #3c46f0);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.profile-container::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 650px;
+    background: linear-gradient(60deg, transparent, #7544f8, #7544f8);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.profile-container h1 {
+    color: #953cf0;
+    font-size: 35px;
+    font-weight: 500;
     text-align: center;
 }
 
-.profile-container h1 {
-    margin-bottom: 20px;
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.profile-form {
+form {
+    position: absolute;
+    inset: 2px;
+    border-radius: 50px 5px;
+    background-color: #01021b;
+    z-index: 10;
+    padding: 30px 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-.profile-form label {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 5px;
+.inputbox{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
 }
 
-.profile-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.inputbox input{
+    position: relative;
     width: 100%;
-}
-
-.profile-form input:disabled {
-    background-color: #d9d9d9;
-    color: #757575;
-    cursor: not-allowed;
-}
-
-.profile-form button {
-    background-color: #004080;
-    color: #fff;
+    padding: 20px 10px 10px;
+    background: transparent;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    outline: none;
+    color: #010426;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index: 10;
 }
 
-.profile-form button:hover {
-    background-color: #0066cc;
+/*boton submit*/
+
+button[type="submit"]{
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: #1e43c1;
+    color: #01021b;
+    padding: 5px;
+    margin-top: 40px;
+    border-radius: 90px;
+    font-weight: 600;
+    cursor: pointer;
 }
+
+button[type="submit"]:active{
+    background: linear-gradient(90deg,#1e43c1,#953cf0);
+    opacity: 0.8;
+}
+
+/*label*/
+
+.inputbox label{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.3em;
+    transition: 0.5s;
+}
+
+.inputbox input:valid ~ label,
+.inputbox input:focus ~ label{
+    color: #1e43c1;
+    transform: translateX(-10px) translateY(-30px);
+    font-size: 0.75em;
+}
+
+/*fecha*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/*barrita que aparece al presionar label*/
+
+.inputbox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 430px;
+    height: 2px;
+    background: #1e43c1;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+
+
+.inputbox input:valid ~ i,
+.inputbox input:focus ~ i{
+    height: 44px;
+}
+
+
+
+

@@ -20,22 +20,37 @@
 
     <main>
         <div class="profile-container">
-            <h1>Perfil</h1>
-            <form class="profile-form" action="#" method="post">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="off">
-
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Apellido" autocomplete="off">
-
-                <label for="username">Nombre de Usuario</label>
-                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" autocomplete="off">
-
-                <label for="correo">Correo</label>
-                <input type="email" id="correo" name="correo" placeholder="Correo" disabled>
-
-                <label for="fecha">Fecha de Nacimiento</label>
-                <input type="date" id="fecha" name="fecha" disabled>
+            
+            <form action="#" method="post">
+                <h1>Perfil</h1>
+                <div class="inputbox">
+                    <input type="text" id="nombre" name="nombre" autocomplete="off" required>
+                    <label for="nombre">Nombre</label>
+                    <i></i>
+                </div>
+                <div class="inputbox">
+                    <input type="text" id="apellido" name="apellido" autocomplete="off" required>
+                    <label for="apellido">Apellido</label>
+                    <i></i>
+                </div>
+                
+                <div class="inputbox">
+                    <input type="text" id="username" name="username" autocomplete="off" required>
+                    <label for="username">Nombre de Usuario</label>
+                    <i></i>
+                </div>
+                
+                <div class="inputbox">
+                    <input type="email" id="correo" name="correo" required>
+                    <label for="correo">Correo</label>
+                    <i></i>
+                </div>
+                <div class="inputbox">
+                    <input type="date" id="fecha" name="fecha" required>
+                    <label for="fecha">Fecha de Nacimiento</label>
+                    <i></i>
+                </div>
+                
 
                 <button type="submit">Actualizar</button>
             </form>

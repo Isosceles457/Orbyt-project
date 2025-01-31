@@ -31,3 +31,37 @@ modals.forEach(modal => {
         closeModal(modal);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('[data-target="modalVerTareas"]').addEventListener("click", async () => {
+        try {
+            const response = await fetch('../backend/get_tareas.php');
+            const tareas = await response.json();
+            
+            const tabla = document.querySelector("#tablaTareas tbody");
+            const mensaje = document.querySelector("#mensajeSinTareas");
+
+            tabla.innerHTML = ""; // Limpiar contenido anterior
+
+            if (tareas.length === 0) {
+                mensaje.style.display = "block";
+                tabla.parentElement.style.display = "none";
+            } else {
+                mensaje.style.display = "none";
+                tabla.parentElement.style.display = "table";
+                tareas.forEach(tarea => {
+                    const fila = document.createElement("tr");
+                    fila.innerHTML = `
+                        <td>${tarea.nombreTarea}</td>
+                        <td>${tarea.descripcionTarea}</td>
+                        <td>${tarea.materia}</td>
+                        <td>${tarea.fechaEntrega}</td>
+                    `;
+                    tabla.appendChild(fila);
+                });
+            }
+        } catch (error) {
+            console.error("Error obteniendo las tareas:", error);
+        }
+    });
+});

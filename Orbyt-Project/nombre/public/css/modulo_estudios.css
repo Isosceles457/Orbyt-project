@@ -52,7 +52,7 @@ header .botones a {
 }
 
 header .botones button {
-    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
+    background: linear-gradient(135deg, #A6E4E7, #56a8c4); /* Color más suave */
     color: white;
     padding: 8px 20px;
     text-decoration: none;
@@ -152,9 +152,9 @@ main {
 .content button:hover {
     background-color: #56e414;
     transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra extra */
 }
 
-/* Estilo de los modales */
 .modal {
     display: none;
     position: fixed;
@@ -169,34 +169,311 @@ main {
 }
 
 .modal-content {
-    background-color: white;
+    color: #fff;
+    background-color: #2b005c;
     padding: 20px;
+    border: solid #5a00c0;
     border-radius: 15px;
+    width: 60%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+#modalGestionarTareas input[type="text"],
+#modalGestionarTareas input[type="date"],
+#modalModificarEventos input[type="text"],
+#modalModificarEventos input[type="date"] {
+    width: 80%;  
+    margin: 0 auto;  
+}
+
+input[type="text"], input[type="date"], select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #004080;
+    color: white;
+    padding: 10px 20px;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     width: 50%;
-    max-width: 600px;
+}
+
+button[type="submit"]:hover {
+    background-color: #56e414;
+    transform: scale(1.1);
 }
 
 .modal-header {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 26px; /* Aumento en tamaño */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .modal-body {
     margin-bottom: 15px;
 }
 
+.modal-body p {
+    font-size: 18px; /* Aumento en tamaño */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
 .modal-close {
     background-color: #e60000;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.2s ease;
+    width: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .modal-close:hover {
     background-color: #cc0000;
     transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.tipoEvento {
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input, select, button {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 1px;
+}
+
+.eliminar-tarea {
+    padding: 5px 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.eliminar-tarea:hover {
+    background-color: darkred;
+}
+
+#tablaTareas {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px; 
+    margin-top: 20px; 
+}
+
+#tablaTareas th, #tablaTareas td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#tablaTareas td {
+    vertical-align: middle; 
+}
+
+#tablaTareas th {
+    background-color: #9600d1;
+    color: white;
+    font-weight: bold;
+}
+
+#tablaHorarios {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px; 
+    margin-top: 20px;
+}
+
+#tablaHorarios th, #tablaHorarios td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#tablaHorarios td {
+    vertical-align: middle;
+}
+
+#tablaHorarios th {
+    background-color: #9600d1; /* Color diferente para destacar la tabla */
+    color: white;
+    font-weight: bold;
+}
+
+/* Tabla para los eventos */
+#tablaEventos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px; 
+    margin-top: 20px;
+}
+
+#tablaEventos th, #tablaEventos td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#tablaEventos td {
+    vertical-align: middle;
+}
+
+#tablaEventos th {
+    background-color: #9600d1;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo para las filas en las tablas de horarios y eventos */
+#tablaHorarios tr:hover,
+#tablaEventos tr:hover {
+    cursor: pointer;
+}
+
+#tablaHorarios td button,
+#tablaEventos td button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#tablaHorarios td button:hover,
+#tablaEventos td button:hover {
+    background-color: darkred;
+}
+
+#modalAgregarAsignatura .modal-header {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#modalAgregarAsignatura form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+#modalAgregarAsignatura input[type="text"],
+#modalAgregarAsignatura input[type="time"],
+#modalAgregarAsignatura select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#modalAgregarAsignatura button[type="submit"] {
+    background-color: #004080;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modalAgregarAsignatura button[type="submit"]:hover {
+    background-color: #56e414;
+    transform: scale(1.1);
+}
+
+/* Estilo de la tabla de horarios */
+#tablaHorarios {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-top: 20px;
+}
+
+#tablaHorarios th, #tablaHorarios td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#tablaHorarios td {
+    vertical-align: middle;
+}
+
+#tablaHorarios th {
+    background-color: #9600d1;
+    color: white;
+    font-weight: bold;
+}
+
+#tablaHorarios tr:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#tablaHorarios td button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#tablaHorarios td button:hover {
+    background-color: darkred;
 }

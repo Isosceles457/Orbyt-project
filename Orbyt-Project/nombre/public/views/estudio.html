@@ -26,14 +26,14 @@
             <div class="estudios">
                 <h3>Tareas</h3>
                 <p>Este es el módulo de tareas, aquí puedes agregar y ver tus asignaciones pendientes para que no se te pase ninguna.</p>
-                <button data-target="modalGestionarTareas">Gestionar Tareas</button>
+                <button data-target="modalGestionarTareas">Agregar Tareas</button>
                 <button data-target="modalVerTareas">Ver Tareas</button>
             </div>
             <div class="horarios">
                 <h3>Horarios</h3>
                 <p>Este es el módulo de horarios, aquí podrás registrar tus asignaturas cursantes y las horas de tus materias.</p>
+                <button data-target="modalAgregarAsignatura">Agregar Asignatura</button>
                 <button data-target="modalVerHorarios">Ver Horario</button>
-                <button data-target="modalModificarHorarios">Modificar Horario</button>
             </div>
             <div class="economia">
                 <h3>Eventos</h3>
@@ -48,7 +48,22 @@
             <div class="modal-content">
                 <div class="modal-header">Gestionar Tareas</div>
                 <div class="modal-body">
-                    <p>Aquí puedes gestionar todas tus tareas.</p>
+                    <p>Aquí puedes agregar todas tus asignaciones pendientes para evitar olvidar alguna!</p>
+                    <form id="formGestionarTareas">
+                        <label for="nombreTarea">Nombre de la tarea:</label>
+                        <input type="text" id="nombreTarea" name="nombreTarea" required>
+                        
+                        <label for="descripcionTarea">Descripción:</label>
+                        <input id="descripcionTarea" name="descripcionTarea" rows="3" required></input>
+                        
+                        <label for="materia">Materia:</label>
+                        <input type="text" id="materia" name="materia" required>
+                        
+                        <label for="fechaEntrega">Fecha tope de entrega:</label>
+                        <input type="date" id="fechaEntrega" name="fechaEntrega" required>
+                        
+                        <button type="submit">Guardar</button>
+                    </form>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
@@ -59,51 +74,188 @@
             <div class="modal-content">
                 <div class="modal-header">Ver Tareas</div>
                 <div class="modal-body">
-                    <p>Aquí puedes ver todas tus tareas asignadas.</p>
+                    <table id="tablaTareas">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Materia</th>
+                                <th>Fecha de Entrega</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5">Aún no has registrado ninguna Tarea</td>
+                            </tr>
+                            <!-- Ejemplo de tarea -->
+                            <tr>
+                                <td>Tarea 1</td>
+                                <td>Descripción de la tarea</td>
+                                <td>Matemáticas</td>
+                                <td>2025-02-15</td>
+                                <td>
+                                    <!-- Botón para eliminar tarea -->
+                                    <button class="eliminar-tarea" style="background-color: red; color: white;">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
         </div>
-    
+        <div id="modalAgregarAsignatura" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Agregar Asignatura</div>
+                <div class="modal-body">
+                    <form id="formAgregarAsignatura">
+                        <p>Aquí puedes agregar nuevas asignaturas a tu horario</p>
+                        <label for="nombreAsignatura">Asignatura:</label>
+                        <input type="text" id="nombreAsignatura" name="nombreAsignatura" placeholder="Nombre de la asignatura" required>
+        
+                        <label for="diaAsignatura">Día:</label>
+                        <select id="diaAsignatura" name="diaAsignatura" required>
+                            <option value="">Selecciona un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miércoles">Miércoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+        
+                        <label for="horaAsignatura">Hora:</label>
+                        <input type="time" id="horaAsignatura" name="horaAsignatura" required>
+        
+                        <button type="submit">Agregar Asignatura</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+        
+                <!-- Modal para Agregar Asignatura -->
+        <div id="modalAgregarAsignatura" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Agregar Asignatura</div>
+                <div class="modal-body">
+                    <form id="formAgregarAsignatura">
+                        <p>Aquí puedes agregar nuevas asignaturas a tu horario</p>
+                        <label for="nombreAsignatura">Asignatura:</label>
+                        <input type="text" id="nombreAsignatura" name="nombreAsignatura" placeholder="Nombre de la asignatura" required>
+
+                        <label for="diaAsignatura">Día:</label>
+                        <select id="diaAsignatura" name="diaAsignatura" required>
+                            <option value="">Selecciona un día</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miércoles">Miércoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+
+                        <label for="horaAsignatura">Hora:</label>
+                        <input type="time" id="horaAsignatura" name="horaAsignatura" required>
+
+                        <button type="submit">Agregar Asignatura</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+
         <!-- Modal para Ver Horarios -->
         <div id="modalVerHorarios" class="modal">
             <div class="modal-content">
                 <div class="modal-header">Ver Horarios</div>
                 <div class="modal-body">
-                    <p>Aquí puedes ver tus horarios académicos.</p>
+                    <table id="tablaHorarios">
+                        <thead>
+                            <tr>
+                                <th>Asignatura</th>
+                                <th>Día</th>
+                                <th>Hora</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">Aún no has registrado ningún horario</td>
+                            </tr>
+                            <!-- Ejemplo de horario -->
+                            <tr>
+                                <td>Matemáticas</td>
+                                <td>Lunes</td>
+                                <td>10:00 AM</td>
+                                <td>
+                                    <!-- Botón para eliminar horario -->
+                                    <button class="eliminar-horario" style="background-color: red; color: white;">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
         </div>
-    
-        <!-- Modal para Modificar Horarios -->
-        <div id="modalModificarHorarios" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">Modificar Horarios</div>
-                <div class="modal-body">
-                    <p>Aquí puedes modificar tus horarios.</p>
-                </div>
-                <button class="modal-close">Cerrar</button>
-            </div>
-        </div>
-    
         <!-- Modal para Modificar Eventos -->
         <div id="modalModificarEventos" class="modal">
             <div class="modal-content">
-                <div class="modal-header">Modificar Eventos</div>
+                <div class="modal-header">Modificar Evento</div>
                 <div class="modal-body">
-                    <p>Aquí puedes modificar tus eventos académicos.</p>
+                    <form id="formModificarEvento">
+                        <p>Aquí puedes modificar los detalles de un evento.</p>
+                        <label for="nombreEvento">Nombre del Evento:</label>
+                        <input type="text" id="nombreEvento" name="nombreEvento" placeholder="Nombre del evento" required>
+        
+                        <label for="descripcionEvento">Descripción:</label>
+                        <textarea id="descripcionEvento" name="descripcionEvento" placeholder="Descripción del evento" required></textarea>
+        
+                        <label for="fechaEvento">Fecha:</label>
+                        <input type="date" id="fechaEvento" name="fechaEvento" required>
+        
+                        <label for="horaEvento">Hora:</label>
+                        <input type="time" id="horaEvento" name="horaEvento" required>
+        
+                        <button type="submit">Guardar cambios</button>
+                    </form>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
         </div>
-    
+
         <!-- Modal para Ver Eventos -->
         <div id="modalVerEventos" class="modal">
             <div class="modal-content">
                 <div class="modal-header">Ver Eventos</div>
                 <div class="modal-body">
-                    <p>Aquí puedes ver todos tus eventos académicos.</p>
+                    <table id="tablaEventos">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th> <!-- Nueva columna de Descripción -->
+                                <th>Tipo de Evento</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5">Aún no has registrado ningún evento</td>
+                            </tr>
+                            <!-- Ejemplo de evento -->
+                            <tr>
+                                <td>Conferencia de Tecnología</td>
+                                <td>Evento sobre innovación tecnológica</td>
+                                <td>Académico</td>
+                                <td>2025-03-10</td>
+                                <td>
+                                    <!-- Botón para eliminar evento -->
+                                    <button class="eliminar-evento" style="background-color: red; color: white;">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
@@ -112,3 +264,4 @@
     <script src="../js/modulo_estudio.js"></script>
 </body>
 </html>
+

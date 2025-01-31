@@ -4,7 +4,7 @@
   "description": "Aplicación web para gestionar notas, horarios, finanzas y recordatorios.",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "start": "concurrently \"mongod\" \"nodemon src/app.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -13,6 +13,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^5.10.9",
     "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   },
   "author": "",
   "license": "ISC"

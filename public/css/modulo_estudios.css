@@ -52,7 +52,7 @@ header .botones a {
 }
 
 header .botones button {
-    background: linear-gradient(135deg, #A6E4E7, #56a8c4); /* Color más suave */
+    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
     color: white;
     padding: 8px 20px;
     text-decoration: none;
@@ -191,11 +191,31 @@ form {
 }
 
 #modalGestionarTareas input[type="text"],
-#modalGestionarTareas input[type="date"],
-#modalModificarEventos input[type="text"],
-#modalModificarEventos input[type="date"] {
-    width: 80%;  
-    margin: 0 auto;  
+#modalGestionarTareas input[type="time"],
+#modalGestionarTareas select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#fechaEntrega{
+    width: 80%;
+    margin: auto;
+}
+
+
+#modalmodificarEvento input[type="text"],
+#modalmodificarEvento input[type="time"],
+#modalmodificarEvento select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 input[type="text"], input[type="date"], select {
@@ -460,7 +480,7 @@ label {
 }
 
 #tablaHorarios tr:hover {
-    background-color: #f0f0f0;
+    background-color: #9600d1;
     cursor: pointer;
 }
 
@@ -476,4 +496,14 @@ label {
 
 #tablaHorarios td button:hover {
     background-color: darkred;
+}
+
+#tablaTareas tr:hover {
+    background-color: #9600d1;
+    cursor: pointer;
+}
+
+#tablaEventos tr:hover {
+    background-color: #9600d1;
+    cursor: pointer;
 }

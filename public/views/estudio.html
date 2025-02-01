@@ -38,7 +38,7 @@
             <div class="economia">
                 <h3>Eventos</h3>
                 <p>Este es el módulo de eventos, aquí podrás agregar, visualizar o eliminar eventos especiales que tengas, desde competencias deportivas hasta cumpleaños.</p>
-                <button data-target="modalModificarEventos">Modificar Eventos</button>
+                <button data-target="modalModificarEventos">Agregar Eventos</button>
                 <button data-target="modalVerEventos">Ver Eventos</button>
             </div>
         </div>
@@ -46,7 +46,7 @@
         <!-- Modal para Gestionar Tareas -->
         <div id="modalGestionarTareas" class="modal">
             <div class="modal-content">
-                <div class="modal-header">Gestionar Tareas</div>
+                <div class="modal-header">Agregar Tareas</div>
                 <div class="modal-body">
                     <p>Aquí puedes agregar todas tus asignaciones pendientes para evitar olvidar alguna!</p>
                     <form id="formGestionarTareas">
@@ -54,7 +54,7 @@
                         <input type="text" id="nombreTarea" name="nombreTarea" required>
                         
                         <label for="descripcionTarea">Descripción:</label>
-                        <input id="descripcionTarea" name="descripcionTarea" rows="3" required></input>
+                        <input type="text" id="descripcionTarea" name="descripcionTarea" rows="3" required></input>
                         
                         <label for="materia">Materia:</label>
                         <input type="text" id="materia" name="materia" required>
@@ -201,15 +201,15 @@
         <!-- Modal para Modificar Eventos -->
         <div id="modalModificarEventos" class="modal">
             <div class="modal-content">
-                <div class="modal-header">Modificar Evento</div>
+                <div class="modal-header">Agregar Evento</div>
                 <div class="modal-body">
                     <form id="formModificarEvento">
-                        <p>Aquí puedes modificar los detalles de un evento.</p>
+                        <p>Aquí puedes agregar los detalles de un evento.</p>
                         <label for="nombreEvento">Nombre del Evento:</label>
                         <input type="text" id="nombreEvento" name="nombreEvento" placeholder="Nombre del evento" required>
         
                         <label for="descripcionEvento">Descripción:</label>
-                        <textarea id="descripcionEvento" name="descripcionEvento" placeholder="Descripción del evento" required></textarea>
+                        <input type="text" id="descripcionEvento" name="descripcionEvento" placeholder="Descripción del evento" required></input>
         
                         <label for="fechaEvento">Fecha:</label>
                         <input type="date" id="fechaEvento" name="fechaEvento" required>

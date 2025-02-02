@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #001f3f;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%; 
+}
+
+header .bienvenida {
+    font-size: 24px;
+}
+
+header .dashboard-link .back-arrow {
+    font-size: 24px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+header .dashboard-link:hover .back-arrow {
+    transform: scale(1.2);
+}
+
+header .botones a {
+    text-decoration: none;
+}
+
+header .botones button {
+    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .botones button:hover {
+    background-color: #0066cc;
+    transform: scale(1.1);
+}
+
+#addNoteBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 50px 20px 20px;
+}
+
+.note {
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    max-width: 400px;
+    word-wrap: break-word;
+    color: white;
+    font-size: 14px;
+}
+
+/* Colores aleatorios para las notas */
+.note:nth-child(odd) {
+    background-color: #FF6B6B;
+}
+.note:nth-child(even) {
+    background-color: #4ECDC4;
+}

@@ -13,7 +13,34 @@ body{
     background: #010426;
 }
 
+header{
+    width: 100%;
+    height: 10%;
+    background-color: #001f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0%;
+    color: #A6E4E7;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+header .nombre{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #A6E4E7;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
 .box{
+    margin-top: 10%;
     position: relative;
     width: 500px;
     height: 750px;
@@ -80,7 +107,7 @@ h2{
 
 .inputbox{
     position: relative;
-    width: 300px;
+    width: 100%;
     margin-top: 35px;
 }
 
@@ -139,8 +166,9 @@ input[type="submit"]:active{
 
 /*input fecha*/
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
+/* Ocultar el marcador de posición del input type="date" cuando está vacío */
+input[type="date"]:not(:focus):not(:valid) {
+    color: transparent;
 }
 /*barrita que aparece al presionar span*/
 

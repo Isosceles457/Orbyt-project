@@ -9,35 +9,38 @@
 </head>
 
 <body>
+    <header>
+        <div class="nombre">Orbyt</div>
+    </header>
     <div class="box">
         <form id="registerForm">
             <h2>Registro</h2>
             <div class="inputbox">
-                <input type="text" name="nombres" required>
+                <input type="text" name="nombres" autocomplete="off" required>
                 <span>Nombres</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="text" name="apellidos" required>
+                <input type="text" name="apellidos" autocomplete="off" required>
                 <span>Apellidos</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="date" name="fechaNacimiento" required>
+                <input type="date" name="fechaNacimiento" autocomplete="off" required>
                 <span>Fecha de nacimiento</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="email" name="username" required>
+                <input type="text" name="username" autocomplete="off" required>
                 <span>Email</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="password" name="password" required>
+                <input type="password" name="password" autocomplete="off" required>
                 <span>Contraseña</span>
                 <i></i>
             </div>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Registrar">
             <div class="link">
                 <a href="/iniciosesion">Iniciar Sesion</a>
             </div>

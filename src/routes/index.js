@@ -39,4 +39,8 @@ router.get('/registro', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/views/registro.html'));
 });
 
+router.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/views/notes.html'));
+})
+
 module.exports = router;

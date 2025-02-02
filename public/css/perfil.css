@@ -47,22 +47,15 @@ header .dashboard-link:hover .back-arrow {
     transform: scale(1.2);
 }
 
-header .logout button {
-    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
-    color: white;
-    padding: 8px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+header .nombre{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #A6E4E7;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
 }
-
-header .logout button:hover {
-    background-color: #0066cc;
-    transform: scale(1.1);
-}
-
 main {
     display: flex;
     justify-content: center;
@@ -137,7 +130,7 @@ form {
 
 .inputbox{
     position: relative;
-    width: 300px;
+    width: 100%;
     margin-top: 35px;
 }
 
@@ -195,9 +188,9 @@ button[type="submit"]:active{
 }
 
 /*fecha*/
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
+input[type="date"]:not(:focus):not(:valid) {
+    color: transparent;
+} 
 
 /*barrita que aparece al presionar label*/
 

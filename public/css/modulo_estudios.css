@@ -45,26 +45,7 @@ header .dashboard-link:hover .back-arrow {
 header .bienvenida {
     font-size: 24px;
     text-align: center;
-}
-
-header .botones a {
-    text-decoration: none;
-}
-
-header .botones button {
-    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
-    color: white;
-    padding: 8px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header .botones button:hover {
-    background-color: #0066cc;
-    transform: scale(1.1);
+    margin: auto;
 }
 
 main {
@@ -480,7 +461,7 @@ label {
 }
 
 #tablaHorarios tr:hover {
-    background-color: #9600d1;
+    background-color: #9600d1; 
     cursor: pointer;
 }
 

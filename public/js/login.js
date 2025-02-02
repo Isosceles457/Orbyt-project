@@ -1,7 +1,7 @@
 document.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const email = document.querySelector('input[type="email"]').value;
+    const email = document.querySelector('#mail').value;
     const password = document.querySelector('input[type="password"]').value;
 
     try {

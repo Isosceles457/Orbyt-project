@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Orbyt</title>
     <link rel="stylesheet" href="../css/perfil.css">
 </head>
+
 <body>
     <header>
         <div class="dashboard-link">
-            <a href="dashboard.html">
+            <a href="/dashboard">
                 <span class="back-arrow">&#8592;</span> Dashboard
             </a>
         </div>
         <div class="logout">
-            <button>Cerrar Sesión</button>
+            <button id="logoutButton">Cerrar Sesión</button>
         </div>
     </header>
 
     <main>
         <div class="profile-container">
-            
-            <form action="#" method="post">
+
+            <form id="profileForm">
                 <h1>Perfil</h1>
                 <div class="inputbox">
                     <input type="text" id="nombre" name="nombre" autocomplete="off" required>
@@ -33,28 +35,42 @@
                     <label for="apellido">Apellido</label>
                     <i></i>
                 </div>
-                
+
                 <div class="inputbox">
-                    <input type="text" id="username" name="username" autocomplete="off" required>
-                    <label for="username">Nombre de Usuario</label>
-                    <i></i>
-                </div>
-                
-                <div class="inputbox">
-                    <input type="email" id="correo" name="correo" required>
+                    <input type="email" id="correo" name="username" required>
                     <label for="correo">Correo</label>
                     <i></i>
                 </div>
                 <div class="inputbox">
-                    <input type="date" id="fecha" name="fecha" required>
-                    <label for="fecha">Fecha de Nacimiento</label>
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Contraseña</label>
                     <i></i>
                 </div>
-                
 
                 <button type="submit">Actualizar</button>
             </form>
         </div>
     </main>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            fetch('/api/auth/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        window.location.href = '/iniciosesion';
+                    } else {
+                        alert('Error al cerrar sesión');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+    <script src="../js/profile.js"></script>
 </body>
+
 </html>

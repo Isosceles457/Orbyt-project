@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orbyt Dashboard</title>
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
+
 <body>
     <header>
         <div class="bienvenida">Bienvenido Usuario</div>
         <div class="botones">
-            <a href="perfil.html">
+            <a href="/perfil">
                 <button>Perfil</button>
             </a>
-            <button>Cerrar Sesión</button>
+            <button id="logoutButton">Cerrar Sesión</button>
         </div>
     </header>
     <main>
         <div class="content">
             <div class="estudios">
-                <a href="estudio.html">
+                <a href="/estudio">
                     <button>Herramientas de Estudios</button>
                 </a>
             </div>
@@ -34,5 +36,25 @@
             <!-- Aquí iria el codigo para que parezcan las notas de las personas, ni idea como sera eso -->
         </div>
     </main>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            fetch('/auth/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = '/iniciosesion';
+                    } else {
+                        alert('Error al cerrar sesión');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
+
 </html>

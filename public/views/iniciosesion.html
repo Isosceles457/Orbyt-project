@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/iniciosesion.css">
     <title>Login</title>
 </head>
+
 <body>
     <div class="box">
-        <form action="">
+        <form id="loginForm">
             <h2>Iniciar Sesion</h2>
             <div class="inputbox">
-                <input type="email" required>
+                <input type="email" name="username" required>
                 <span>Email</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <span>Contraseña</span>
                 <i></i>
             </div>
             <input type="submit" value="Entrar">
             <div class="link">
-                <a href="registro.html">Registrar</a>
+                <a href="/registro">Registrar</a>
             </div>
-
         </form>
     </div>
+    <script src="../js/login.js"></script>
 </body>
-</html>
 
-<!--#7544f8  lila oscuro
-#2932c1  azul
--->
+</html>

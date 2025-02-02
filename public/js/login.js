@@ -1,25 +1,30 @@
 document.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const username = document.querySelector('#email').value; // Cambio aquí
-    const password = document.querySelector('#password').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
 
-    const response = await fetch('http://localhost:3000/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    });
+    try {
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username: email, password }),
+        });
 
-    const data = await response.json();
 
-    if (response.ok) {
-        // Si la autenticación es exitosa, almacenar el token
-        localStorage.setItem('token', data.token);
-        alert('Inicio de sesión exitoso');
-    } else {
-        // Mostrar error si las credenciales son incorrectas
-        alert(data.error);
+        const data = await response.json();
+
+        if (data.success) {
+            // Si la autenticación es exitosa, redirigir al dashboard
+            window.location.href = '/dashboard';
+        } else {
+            // Mostrar error si las credenciales son incorrectas
+            alert(data.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Ocurrió un error al intentar iniciar sesión.');
     }
 });

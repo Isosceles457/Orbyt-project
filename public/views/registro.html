@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/registro.css">
-    <title>Login</title>
+    <title>Registro</title>
 </head>
+
 <body>
     <div class="box">
-        <form action="">
+        <form id="registerForm">
             <h2>Registro</h2>
             <div class="inputbox">
-                <input type="Text" required>
+                <input type="text" name="nombres" required>
                 <span>Nombres</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="text" required>
+                <input type="text" name="apellidos" required>
                 <span>Apellidos</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="date" required>
+                <input type="date" name="fechaNacimiento" required>
                 <span>Fecha de nacimiento</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="email" required>
+                <input type="email" name="username" required>
                 <span>Email</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <span>Contraseña</span>
                 <i></i>
             </div>
             <input type="submit" value="Enviar">
             <div class="link">
-                <a href="iniciosesion.html">Iniciar Sesion</a>
+                <a href="/iniciosesion">Iniciar Sesion</a>
             </div>
-
         </form>
     </div>
+    <script src="../js/register.js"></script>
 </body>
+
 </html>

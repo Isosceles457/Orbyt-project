@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #001f3f;
+    background-color: #360e8e;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -30,7 +30,7 @@ header .botones a {
 }
 
 header .botones button {
-    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
+    background: linear-gradient(135deg, #360e8e, #9B6DAB);
     color: white;
     padding: 8px 20px;
     text-decoration: none;
@@ -49,7 +49,7 @@ main {
     display: flex;
     flex: 1;
     flex-direction: row-reverse; 
-    background: #004080
+    background: #6D5ACF
 }
 
 .sidebar {
@@ -92,13 +92,13 @@ main {
 }
 
 .content .estudios {
-    background-color: #cbfdaa;
-    border: 3px solid #2f6a33;
+    background-color: #9258ea;
+    border: 3px solid #460ba1;
 }
 
 .content .economia {
-    background-color: #a0d0ff;
-    border: 3px solid #7db8e6;
+    background-color: #6a25d5;
+    border: 3px solid #27045e;
 }
 
 .content .estudios button,
@@ -119,25 +119,25 @@ main {
 }
 
 .content .estudios button{
-    background-color: #1f5008
+    background-color: #460ba1;
 }
 .content .estudios a{
     text-decoration: none;
 }
 
 .content .economia button{
-    background-color: #0a5e8f
+    background-color: #27045e;
 }
 .content .economia a{
     text-decoration: none;
 }
 
 .content .estudios button:hover{
-    background-color: #56e414;
+    background-color: #6a25d5;
     transform: scale(1.1);
 }
 .content .economia button:hover {
-    background-color: #48bcff;
+    background-color: #9258ea;
     transform: scale(1.1);
 }
 

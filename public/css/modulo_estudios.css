@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #001f3f;
+    background-color: #360e8e;
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -52,7 +52,7 @@ main {
     display: flex;
     flex: 1;
     flex-direction: row-reverse;
-    background: #004080;
+    background: #6D5ACF;
 }
 
 .content {
@@ -100,22 +100,25 @@ main {
 }
 
 .content .estudios {
-    background-color: #cbfdaa;
-    border: 3px solid #2f6a33;
+    background-color: #ac7cf6;
+    border: 3px solid #5913c6;
+    color: #ffff;
 }
 
 .content .economia {
-    background-color: #a0d0ff;
-    border: 3px solid #7db8e6;
+    background-color: #6a25d5;
+    border: 3px solid #27045e;
+    color: #ffff;
 }
 
 .content .horarios {
-    background-color: #ffcccc;
-    border: 3px solid #e60000;
+    background-color: #9258ea;
+    border: 3px solid #460ba1;
+    color: #ffff;
 }
 
 .content button {
-    background-color: #004080;
+    background-color: #7d48c6 ;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -131,7 +134,7 @@ main {
 }
 
 .content button:hover {
-    background-color: #56e414;
+    background-color: #9965e9;
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra extra */
 }

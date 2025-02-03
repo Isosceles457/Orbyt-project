@@ -16,11 +16,29 @@
         <div class="bienvenida">Orbyt - Modulo de Notas</div>
     </header>
     <main>
-        <button id="addNoteBtn">Agregar una nota</button>
+        <button id="addNoteBtn" data-target="AgregarNotas">Agregar una nota</button>
         <div id="notesContainer"></div>
-    
-        <script src="script.js"></script>
+
+
+        <div id="AgregarNotas" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Agregar Nota</div>
+                <div class="modal-body">
+                    <p>Escribe aqui todo lo que no quieras olvidar, te recordaremos siempre que podamos :) </p>
+                    <form id="formAgregarNotas">
+                        <label for="nombreNota">Nombre:</label>
+                        <input type="text" id="nombreNota" name="nombreNota" required>
+                        
+                        <label for="descripcionNota">Descripción:</label>
+                        <input type="text" id="descripcionNota" name="descripcionNota" rows="3" required></input>
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
         <p>Hola</p>
     </main>
+    <script src="../js/notes.js"></script>
 </body>
 </html>

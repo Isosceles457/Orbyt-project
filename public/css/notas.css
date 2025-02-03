@@ -184,6 +184,16 @@ button[type="submit"] {
     width: 50%;
 }
 
+#formAgregarNotas textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    box-sizing: border-box;
+    resize: none;
+}
+
 button[type="submit"]:hover {
     background-color: #56e414;
     transform: scale(1.1);

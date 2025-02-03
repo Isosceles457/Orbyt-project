@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas - Orbyt</title>
+    <link rel="stylesheet" href="../css/finanzas.css">
+</head>
+<body>
+    <header>
+        <div class="dashboard-link">
+            <a href="/dashboard">
+                <span class="back-arrow">&#8592;</span> Dashboard
+            </a>
+        </div>
+        <div class="bienvenida">Orbyt - Modulo de Finanzas</div>
+    </header>
+    <main>
+        <!-- Botones para agregar ingresos y gastos -->
+        <button id="addIncomeBtn" class="add-income-btn" data-target="modalIngresos">Agregar Ganancia</button> 
+        <button id="addExpenseBtn" class="add-expense-btn" data-target="modalGastos">Agregar Gasto</button>
+
+        <!-- Selector de mes -->
+        <div class="month-selector-container">
+            <select id="monthSelector">
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option>
+                <option value="Junio">Junio</option>
+                <option value="Julio">Julio</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Septiembre">Septiembre</option>
+                <option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option>
+                <option value="Diciembre">Diciembre</option>
+            </select>
+        </div>
+
+        <canvas id="myChart" height="300px" width="300px"></canvas>
+
+        <!-- Modales para agregar ingresos y gastos (sin cambios) -->
+        <div id="modalIngresos" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Agregar Ganancia</div>
+                <div class="modal-body">
+                    <p>Registra aquí tus ingresos para llevar un mejor control financiero.</p>
+                    <form id="formIngresos">
+                        <label for="nombreIngreso">Concepto:</label>
+                        <input type="text" id="nombreIngreso" name="nombreIngreso" required>
+                        
+                        <label for="montoIngreso">Monto:</label>
+                        <input type="number" id="montoIngreso" name="montoIngreso" required>
+                        
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+
+        <div id="modalGastos" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Agregar Gasto</div>
+                <div class="modal-body">
+                    <p>Registra aquí tus gastos para mantener un seguimiento detallado.</p>
+                    <form id="formGastos">
+                        <label for="nombreGasto">Concepto:</label>
+                        <input type="text" id="nombreGasto" name="nombreGasto" required>
+                        
+                        <label for="montoGasto">Monto:</label>
+                        <input type="number" id="montoGasto" name="montoGasto" required>
+                        
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <script src="../js/finanzas.js" defer></script>
+</body>
+</html>

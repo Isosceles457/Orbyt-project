@@ -61,38 +61,53 @@ main {
     height: 100%; 
 }
 
-.add-income-btn {
-    background-color: green;
-    color: white;
+.controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 10px auto 0 auto; /* Reducir margen superior */
+    position: relative;
+    top: -35%; /* Empujar hacia arriba */
+}
+
+.add-income-btn, .add-expense-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.add-income-btn {
+    background-color: rgb(5, 172, 5);
+    color: white;
     position: absolute;
-    top: 60px;
-    left: 20px;
+    left: 0;
+}
+
+.add-income-btn:hover{
+    transform: scale(1.1);
+    background-color: rgb(4, 223, 4) ;
 }
 
 .add-expense-btn {
-    background-color: red;
+    background-color: rgb(204, 0, 0);
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
     position: absolute;
-    top: 60px;
-    right: 20px;
+    right: 0;
+}
+
+.add-expense-btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 0, 0)
 }
 
 .month-selector-container {
     position: absolute;
-    top: 120px;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 20px;
 }
 
 #monthSelector {
@@ -100,7 +115,13 @@ main {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: #360e8e;
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#monthSelector:hover{
+    transform: scale(1.1);
 }
 
 canvas {
@@ -153,6 +174,7 @@ canvas {
 }
 
 .modal-close {
+    margin-top: 10px;
     background-color: red;
     color: white;
     border: none;
@@ -203,4 +225,32 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #56e414;
     transform: scale(1.1);
+}
+
+#mesIngreso, #mesGasto {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 80%; /* Ajusta el ancho según lo necesites */
+    margin-top: 10px; /* Espaciado entre los elementos */
+}
+
+/* Estilo para los select de los modales al estar enfocados */
+#mesIngreso:focus, #mesGasto:focus {
+    outline: none;
+    border-color: #004080; /* Color de borde cuando esté enfocado */
+    box-shadow: 0 0 5px rgba(0, 64, 128, 0.5); /* Sombra sutil */
+}
+
+/* Estilo de las opciones del select */
+#mesIngreso option, #mesGasto option {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Estilo para los select en los modales cuando se pasa el cursor */
+#mesIngreso:hover, #mesGasto:hover {
+    background-color: #f4f4f4;
 }

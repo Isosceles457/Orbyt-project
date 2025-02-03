@@ -38,4 +38,8 @@ router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/views/notes.html'));
 });
 
+router.get('/finanzas', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/views/finanzas.html'));
+});
+
 module.exports = router;

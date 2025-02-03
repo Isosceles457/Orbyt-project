@@ -6,6 +6,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const path = require('path');
 const profileRoutes = require('./routes/profileRoutes');
+const noteRoutes = require('./routes/noteRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,12 +20,13 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/nombre' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/orbyt' }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 día
 }));
 
 app.use('/', routes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/notes', noteRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);

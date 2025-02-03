@@ -33,7 +33,7 @@
         </div>
         <div class="sidebar">
             <h2>Notas</h2>
-            <!-- Aquí iria el codigo para que parezcan las notas de las personas, ni idea como sera eso -->
+            <div id="ultimasNotas"></div> <!-- Div para mostrar las últimas 3 notas -->
             <a href="/notes" class="ver-mas-notas">Ver más notas...</a>
         </div>
     </main>
@@ -55,6 +55,30 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+        // Fetch and display the last 3 notes
+        const fetchUltimasNotas = async () => {
+            const response = await fetch('/api/notes/ultimas');
+            if (response.ok) {
+                const notas = await response.json();
+                const ultimasNotasDiv = document.getElementById('ultimasNotas');
+                ultimasNotasDiv.innerHTML = '';
+                notas.forEach(nota => {
+                    const notaElement = document.createElement('div');
+                    notaElement.classList.add('nota');
+                    notaElement.innerHTML = `
+                        <h3>${nota.titulo}</h3>
+                        <p>${nota.contenido}</p>
+                    `;
+                    ultimasNotasDiv.appendChild(notaElement);
+                });
+            } else {
+                console.error('Error fetching notes:', response.statusText);
+            }
+        };
+
+        // Initial fetch
+        fetchUltimasNotas();
     </script>
 </body>
 

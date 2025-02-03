@@ -19,7 +19,7 @@
         <button id="addNoteBtn" data-target="AgregarNotas">Agregar una nota</button>
         <div id="notesContainer"></div>
 
-
+        <!-- Modal para agregar notas -->
         <div id="AgregarNotas" class="modal">
             <div class="modal-content">
                 <div class="modal-header">Agregar Nota</div>
@@ -30,14 +30,32 @@
                         <input type="text" id="nombreNota" name="nombreNota" required>
                         
                         <label for="descripcionNota">Descripción:</label>
-                        <input type="text" id="descripcionNota" name="descripcionNota" rows="3" required></input>
+                        <textarea id="descripcionNota" name="descripcionNota" rows="3" required></textarea>
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
                 <button class="modal-close">Cerrar</button>
             </div>
         </div>
-        <p>Hola</p>
+
+        <!-- Modal para editar notas -->
+        <div id="EditarNotas" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">Editar Nota</div>
+                <div class="modal-body">
+                    <form id="formEditarNotas">
+                        <input type="hidden" id="editNotaId" name="editNotaId">
+                        <label for="editNombreNota">Nombre:</label>
+                        <input type="text" id="editNombreNota" name="editNombreNota" required>
+                        
+                        <label for="editDescripcionNota">Descripción:</label>
+                        <textarea id="editDescripcionNota" name="editDescripcionNota" rows="3" required></textarea>
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+                <button class="modal-close">Cerrar</button>
+            </div>
+        </div>
     </main>
     <script src="../js/notes.js"></script>
 </body>

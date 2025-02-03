@@ -49,25 +49,6 @@
             </form>
         </div>
     </main>
-    <script>
-        document.getElementById('logoutButton').addEventListener('click', function () {
-            fetch('/api/auth/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message) {
-                        window.location.href = '/iniciosesion';
-                    } else {
-                        alert('Error al cerrar sesión');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
-    </script>
     <script src="../js/profile.js"></script>
 </body>
 

@@ -13,7 +13,7 @@
                 <span class="back-arrow">&#8592;</span> Dashboard
             </a>
         </div>
-        <div class="bienvenida">Usuario - Modulo de Estudio</div>
+        <div class="bienvenida">Orbyt - Modulo de Estudio</div>
     </header>
     <main>
         <div class="content">
@@ -256,24 +256,5 @@
         </div>
     </main>
     <script src="../js/modulo_estudio.js"></script>
-    <script>
-        document.getElementById('logoutButton').addEventListener('click', function () {
-            fetch('/api/auth/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message) {
-                        window.location.href = '/iniciosesion';
-                    } else {
-                        alert('Error al cerrar sesión');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
-    </script>
 </body>
 </html>

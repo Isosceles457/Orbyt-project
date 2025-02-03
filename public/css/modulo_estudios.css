@@ -43,6 +43,10 @@ header .dashboard-link:hover .back-arrow {
 }
 
 header .bienvenida {
+    color: #A6E4E7;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 24px;
     text-align: center;
     margin: auto;

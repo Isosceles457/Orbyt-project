@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #001f3f;
+    background-color: #360e8e;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -22,7 +22,13 @@ header {
 }
 
 header .bienvenida {
+    color: #A6E4E7;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 24px;
+    text-align: center;
+    margin: auto;
 }
 
 header .dashboard-link .back-arrow {
@@ -35,36 +41,30 @@ header .dashboard-link:hover .back-arrow {
     transform: scale(1.2);
 }
 
-header .botones a {
-    text-decoration: none;
-}
-
-header .botones button {
-    background: linear-gradient(135deg, #A6E4E7, #9B6DAB);
-    color: white;
-    padding: 8px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header .botones button:hover {
-    background-color: #0066cc;
-    transform: scale(1.1);
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse; 
+    background: #6D5ACF
 }
 
 #addNoteBtn {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #4CAF50;
+    left: 15px;
+    top: 11%;
+    background-color: #460ba1;
     color: white;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#addNoteBtn:hover{
+    transform: scale(1.1);
+    background-color: #6a25d5;
 }
 
 #notesContainer {
@@ -73,6 +73,7 @@ header .botones button:hover {
     gap: 15px;
     padding: 50px 20px 20px;
 }
+
 
 .note {
     border-radius: 8px;

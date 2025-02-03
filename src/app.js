@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo');
 const path = require('path');
 const profileRoutes = require('./routes/profileRoutes');
 const noteRoutes = require('./routes/noteRoutes');
+const studyRoutes = require('./routes/studyRoutes'); // Importar las rutas de estudio
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/notes', noteRoutes);
+app.use('/api/study', studyRoutes); // Usar las rutas de estudio
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);

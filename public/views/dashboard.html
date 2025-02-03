@@ -24,6 +24,9 @@
                 <a href="/estudio">
                     <button>Herramientas de Estudios</button>
                 </a>
+                <h2>Tareas Próximas</h2>
+                <div id="proximasTareas"></div> <!-- Div para mostrar las próximas 3 tareas -->
+                <a href="/estudio" class="ver-mas-tareas">Ver más tareas...</a>
             </div>
             <div class="economia">
                 <a href="economia.html">
@@ -77,8 +80,31 @@
             }
         };
 
+        // Fetch and display the next 3 tasks
+        const fetchProximasTareas = async () => {
+            const response = await fetch('/api/study/tareas/proximas');
+            if (response.ok) {
+                const tareas = await response.json();
+                const proximasTareasDiv = document.getElementById('proximasTareas');
+                proximasTareasDiv.innerHTML = '';
+                tareas.forEach(tarea => {
+                    const tareaElement = document.createElement('div');
+                    tareaElement.classList.add('tarea');
+                    tareaElement.innerHTML = `
+                        <h3>${tarea.nombre}</h3>
+                        <p>${tarea.descripcion}</p>
+                        <p>Fecha de entrega: ${new Date(tarea.fechaEntrega).toLocaleDateString()}</p>
+                    `;
+                    proximasTareasDiv.appendChild(tareaElement);
+                });
+            } else {
+                console.error('Error fetching tasks:', response.statusText);
+            }
+        };
+
         // Initial fetch
         fetchUltimasNotas();
+        fetchProximasTareas();
     </script>
 </body>
 

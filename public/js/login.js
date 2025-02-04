@@ -1,7 +1,14 @@
-document.querySelector('form').addEventListener('submit', async function (e) {
-    e.preventDefault();
+document.getElementById("loginForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); 
 
-    const email = document.querySelector('#mail').value;
+    let emailInput = document.getElementById("mail");
+    let emailValue = emailInput.value.trim();
+
+    if (!emailValue.includes("@")) {
+        alert("Por favor, ingrese un correo válido que contenga '@'.");
+        return; 
+    }
+
     const password = document.querySelector('input[type="password"]').value;
 
     try {
@@ -10,21 +17,19 @@ document.querySelector('form').addEventListener('submit', async function (e) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username: email, password }),
+            body: JSON.stringify({ username: emailValue, password }),
         });
-
 
         const data = await response.json();
 
-        if (data.success) {
-            // Si la autenticación es exitosa, redirigir al dashboard
+        if (response.ok && data.success) {
             window.location.href = '/dashboard';
         } else {
-            // Mostrar error si las credenciales son incorrectas
-            alert(data.error);
+            alert(data.error || 'Usuario o contraseña incorrectos.');
         }
     } catch (error) {
         console.error('Error:', error);
         alert('Ocurrió un error al intentar iniciar sesión.');
     }
 });
+

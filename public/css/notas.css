@@ -165,6 +165,10 @@ main {
     align-items: center;
 }
 
+#editarNotas .modal-content{
+    max-width: 250px;
+}
+
 .modal-content {
     color: #fff;
     background-color: #2b005c;
@@ -185,18 +189,9 @@ main {
     margin-bottom: 10px;
 }
 
-/* Fondo oscurecido cuando el modal está activo */
-.modal.active {
-    display: block; /* Muestra el modal cuando tiene la clase "active" */
-}
 
-.modal-close {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-top: 10px;
+.modal.active {
+    display: block; 
 }
 
 form {
@@ -208,14 +203,20 @@ form {
     margin-top: 15px;
 }
 
-.formAgregarNotas input[type="text"],
-.formAgregarNotas select {
-    width: 80%;
-    padding: 10px;
+#formAgregarNotas input[type="text"],
+#formAgregarNotas select,
+#formAgregarNotas textarea,
+#formEditarNotas input[type="text"],
+#formEditarNotas select,
+#formEditarNotas textarea  {
+    font-size: 16px;
+    padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin: 0 auto;
-    box-sizing: border-box;
+    width: 100%; /* Esto asegura que ocupen el 100% del ancho del contenedor */
+    box-sizing: border-box; /* Importante para que el padding no afecte el ancho total */
+    background-color: #fff;
+    color: #000;
 }
 
 button[type="submit"] {
@@ -229,16 +230,6 @@ button[type="submit"] {
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 50%;
-}
-
-.formAgregarNotas textarea {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin: 0 auto;
-    box-sizing: border-box;
-    resize: none;
 }
 
 button[type="submit"]:hover {
@@ -259,6 +250,7 @@ button[type="submit"]:hover {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 }
 
 .modal-close:hover {

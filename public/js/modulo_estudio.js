@@ -139,6 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Verificar si los botones de eliminar tienen un ID correcto
+    setTimeout(() => {
+        document.querySelectorAll('.eliminar-tarea').forEach(btn => console.log(btn.dataset.id));
+    }, 3000);
+
     // Fetch initial data
     fetchTareas();
     fetchHorarios();

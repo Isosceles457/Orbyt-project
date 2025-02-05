@@ -70,8 +70,8 @@ exports.createHorario = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
-        const { asignatura, dia, hora } = req.body;
-        const nuevoHorario = { asignatura, dia, hora };
+        const { asignatura, dia, horaI, horaF } = req.body;
+        const nuevoHorario = { asignatura, dia, horaI, horaF };
         user.horarios.push(nuevoHorario);
         await user.save();
         res.status(201).json(nuevoHorario);

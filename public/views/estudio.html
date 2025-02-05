@@ -80,18 +80,6 @@
                             <tr>
                                 <td colspan="5">Aún no has registrado ninguna Tarea</td>
                             </tr>
-                            <!-- Ejemplo de tarea -->
-                            <tr>
-                                <td>Tarea 1</td>
-                                <td>Descripción de la tarea</td>
-                                <td>Matemáticas</td>
-                                <td>2025-02-15</td>
-                                <td>
-                                    <!-- Botón para eliminar tarea -->
-                                    <button class="eliminar-tarea"
-                                        style="background-color: red; color: white;">Eliminar</button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -106,6 +94,7 @@
                 <div class="modal-body">
                     <form id="formAgregarAsignatura">
                         <p>Aquí puedes agregar nuevas asignaturas a tu horario</p>
+
                         <label for="nombreAsignatura">Asignatura:</label>
                         <input type="text" id="nombreAsignatura" name="nombreAsignatura"
                             placeholder="Nombre de la asignatura" required>
@@ -120,8 +109,11 @@
                             <option value="Viernes">Viernes</option>
                         </select>
 
-                        <label for="horaAsignatura">Hora:</label>
-                        <input type="time" id="horaAsignatura" name="horaAsignatura" required>
+                        <label for="horaInicio">Hora de inicio:</label>
+                        <input type="time" id="horaInicio" name="horaInicio" required>
+
+                        <label for="horaFin">Hora de culminación:</label>
+                        <input type="time" id="horaFin" name="horaFin" required>
 
                         <button type="submit">Agregar Asignatura</button>
                     </form>
@@ -147,17 +139,6 @@
                         <tbody>
                             <tr>
                                 <td colspan="4">Aún no has registrado ningún horario</td>
-                            </tr>
-                            <!-- Ejemplo de horario -->
-                            <tr>
-                                <td>Matemáticas</td>
-                                <td>Lunes</td>
-                                <td>10:00 AM</td>
-                                <td>
-                                    <!-- Botón para eliminar horario -->
-                                    <button class="eliminar-horario"
-                                        style="background-color: red; color: white;">Eliminar</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>

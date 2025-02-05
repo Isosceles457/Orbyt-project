@@ -58,11 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const asignatura = document.getElementById('nombreAsignatura').value;
         const dia = document.getElementById('diaAsignatura').value;
-        const hora = document.getElementById('horaAsignatura').value;
+        const horaI = document.getElementById('horaInicio').value;
+        const horaF = document.getElementById('horaFin').value;
         const response = await fetch('/api/study/horarios', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ asignatura, dia, hora })
+            body: JSON.stringify({ asignatura, dia, horaI, horaF })
         });
         if (response.ok) {
             alert('Asignatura agregada exitosamente');
@@ -105,16 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
             horarios.forEach(horario => {
                 const row = tablaHorarios.insertRow();
                 row.innerHTML = `
-                    <td>${horario.asignatura}</td>
-                    <td>${horario.dia}</td>
-                    <td>${horario.hora}</td>
-                    <td><button class="eliminar-horario" data-id="${horario._id}" style="background-color: red; color: white;">Eliminar</button></td>
-                `;
+                <td>${horario.asignatura}</td>
+                <td>${horario.dia}</td>
+                <td>${horario.horaI} - ${horario.horaF}</td>
+                <td><button class="eliminar-horario" data-id="${horario._id}" style="background-color: red; color: white;">Eliminar</button></td>
+            `;
             });
         } else {
             alert('Error al obtener los horarios');
         }
     };
+
 
     // Asignar eventos a los botones de eliminar
     document.addEventListener('click', async (e) => {

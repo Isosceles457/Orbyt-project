@@ -101,9 +101,23 @@
             }
         };
 
+        // Fetch user profile and update welcome message
+        const fetchUserProfile = async () => {
+            const response = await fetch('/api/profile');
+            if (response.ok) {
+                const data = await response.json();
+                if (data.success && data.user) {
+                    document.querySelector('.bienvenida').innerText = `Hola ${data.user.nombres}`;
+                }
+            } else {
+                console.error('Error fetching user profile:', response.statusText);
+            }
+        };
+
         // Initial fetch
         fetchUltimasNotas();
         fetchProximasTareas();
+        fetchUserProfile();
     </script>
 </body>
 

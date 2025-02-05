@@ -55,13 +55,12 @@ header .dashboard-link:hover .back-arrow {
 main {
     display: flex;
     flex: 1;
-    flex-direction: row-reverse; 
     background: #6D5ACF
 }
 
 #addNoteBtn {
     position: absolute;
-    left: 15px;
+    right: 15px;
     top: 11%;
     background-color: #460ba1;
     color: white;
@@ -87,22 +86,70 @@ main {
 
 
 .note {
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 15px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    max-width: 400px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    min-width: 250px;
+    max-width: 450px;
+    height: 300px;
     word-wrap: break-word;
     color: white;
     font-size: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto hover */
+.note:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Colores aleatorios para las notas */
 .note:nth-child(odd) {
-    background-color: #8c4fee ;
+    background: linear-gradient(135deg, #8c4fee, #6b2dc7);
 }
+
 .note:nth-child(even) {
-    background-color: #4fa2ee ;
+    background: linear-gradient(135deg, #4fa2ee, #1e73d4);
+}
+
+/* Títulos de la nota */
+.note h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Contenido de la nota */
+.note p {
+    margin: 0 0 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Botones */
+.note button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s ease;
+    align-self: flex-end;
+}
+
+.note button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Espaciado entre botones */
+.note button+button {
+    margin-left: 8px;
 }
 
 .modal {
@@ -161,8 +208,8 @@ form {
     margin-top: 15px;
 }
 
-#formAgregarNotas input[type="text"],
-#formAgregarNotas select {
+.formAgregarNotas input[type="text"],
+.formAgregarNotas select {
     width: 80%;
     padding: 10px;
     border-radius: 5px;
@@ -184,7 +231,7 @@ button[type="submit"] {
     width: 50%;
 }
 
-#formAgregarNotas textarea {
+.formAgregarNotas textarea {
     width: 80%;
     padding: 10px;
     border-radius: 5px;

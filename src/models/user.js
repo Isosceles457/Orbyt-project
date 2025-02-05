@@ -17,7 +17,9 @@ const tareaSchema = new mongoose.Schema({
 const horarioSchema = new mongoose.Schema({
     asignatura: { type: String, required: true },
     dia: { type: String, required: true },
-    hora: { type: String, required: true }
+    horaI: { type: String, required: true },
+    horaF: { type: String, required: true }
+
 });
 
 const userSchema = new mongoose.Schema({

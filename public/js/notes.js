@@ -6,17 +6,17 @@ const modals = document.querySelectorAll('.modal');
 
 // Función para abrir un modal
 function openModal(modal) {
-    modal.style.display = 'flex'; // Cambia el estilo para mostrar el modal
+    modal.style.display = 'flex';
 }
 
 // Función para cerrar un modal
 function closeModal(modal) {
-    modal.style.display = 'none'; // Cambia el estilo para ocultar el modal
+    modal.style.display = 'none';
 }
 
 // Asignar evento a cada botón para abrir el modal correspondiente
 buttons.forEach(button => {
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
         const targetModal = document.querySelector(`#${this.dataset.target}`);
         if (targetModal) {
             openModal(targetModal);
@@ -34,16 +34,15 @@ modals.forEach(modal => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const notesContainer = document.getElementById('notesContainer');
-    const addNoteBtn = document.getElementById('addNoteBtn');
     const formAgregarNotas = document.getElementById('formAgregarNotas');
     const formEditarNotas = document.getElementById('formEditarNotas');
-    let notes = []; // Definir la variable notes en el ámbito adecuado
+    let notes = [];
 
     // Fetch and display notes
     const fetchNotes = async () => {
         const response = await fetch('/api/notes');
         if (response.ok) {
-            notes = await response.json(); // Asignar las notas a la variable notes
+            notes = await response.json();
             notesContainer.innerHTML = '';
             notes.forEach(note => {
                 const noteElement = document.createElement('div');
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Add note
+    // Agregar nota
     formAgregarNotas.addEventListener('submit', async (e) => {
         e.preventDefault();
         const titulo = document.getElementById('nombreNota').value;
@@ -73,20 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (response.ok) {
             fetchNotes();
+            closeModal(document.getElementById('AgregarNotas')); // Cierra el modal al agregar la nota
+            formAgregarNotas.reset(); // Limpia el formulario
         } else {
             console.error('Error adding note:', response.statusText);
         }
     });
 
-    // Edit note
+    // Editar nota
     notesContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('edit-note')) {
             const id = e.target.dataset.id;
-            const note = notes.find(note => note._id === id); // Usar la variable notes
+            const note = notes.find(note => note._id === id);
             document.getElementById('editNotaId').value = note._id;
             document.getElementById('editNombreNota').value = note.titulo;
             document.getElementById('editDescripcionNota').value = note.contenido;
-            document.getElementById('EditarNotas').style.display = 'block';
+            openModal(document.getElementById('EditarNotas'));
         }
     });
 
@@ -102,12 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (response.ok) {
             fetchNotes();
+            closeModal(document.getElementById('EditarNotas')); // Cierra el modal al editar la nota
+            formEditarNotas.reset(); // Limpia el formulario
         } else {
             console.error('Error editing note:', response.statusText);
         }
     });
 
-    // Delete note
+    // Eliminar nota
     notesContainer.addEventListener('click', async (e) => {
         if (e.target.classList.contains('delete-note')) {
             const id = e.target.dataset.id;
@@ -120,6 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initial fetch
+    // Cargar notas iniciales
     fetchNotes();
 });

@@ -181,3 +181,8 @@ input[type="submit"]:active{
 .link a:hover, .link a:nth-child(2){
     color: #1e43c1;
 }
+
+.nombre{
+    cursor: pointer;
+    
+}

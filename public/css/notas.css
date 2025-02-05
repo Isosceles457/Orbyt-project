@@ -99,10 +99,10 @@ main {
 
 /* Colores aleatorios para las notas */
 .note:nth-child(odd) {
-    background-color: #FF6B6B;
+    background-color: #8c4fee ;
 }
 .note:nth-child(even) {
-    background-color: #4ECDC4;
+    background-color: #4fa2ee ;
 }
 
 .modal {

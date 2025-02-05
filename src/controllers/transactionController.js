@@ -40,13 +40,13 @@ exports.deleteTransaction = async (req, res) => {
 
 exports.setBaseSalary = async (req, res) => {
     try {
-        const { sueldoBase, mes, año } = req.body;
+        const { sueldoBase } = req.body;
         const transaction = await Transaction.findOneAndUpdate(
-            { mes, año, userId: req.user._id, tipo: 'sueldoBase' },
+            { userId: req.user._id, tipo: 'sueldoBase' },
             { monto: sueldoBase },
             { new: true, upsert: true }
         );
-        res.status(200).json(transaction);
+        res.status(200).json({ success: true, transaction });
     } catch (error) {
         res.status(400).json({ message: 'Error al establecer el sueldo base' });
     }

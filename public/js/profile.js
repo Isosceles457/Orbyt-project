@@ -32,11 +32,12 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
     // Validación del correo electrónico para asegurarse de que contenga "@"
     if (!correo.includes("@")) {
-        alert("Por favor, ingrese un correo válido que contenga '@'.");
+        showToast("Error", "Por favor, ingrese un correo válido que contenga '@'.", "error");
         return;
     }
 
     try {
+
         const response = await fetch('/api/profile/update', {
             method: 'POST',
             headers: {
@@ -46,14 +47,51 @@ document.getElementById('profileForm').addEventListener('submit', async function
         });
 
         const data = await response.json();
-
+        console.log(data);
         if (data.success) {
-            alert('Perfil actualizado exitosamente');
+            showToast("Success", "Perfil actualizado exitosamente", "success");
         } else {
-            alert('Error al actualizar el perfil: ' + data.error);
+            showToast("Error", 'Error al actualizar el perfil: ' + data.error, "error");
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Ocurrió un error al intentar actualizar el perfil.');
+        showToast("Error", 'Ocurrió un error al intentar actualizar el perfil.', "error");
     }
+});
+
+function showToast(title, message, type) {
+    const toast = document.querySelector(".toast");
+    const toastTitle = toast.querySelector(".text-1");
+    const toastMessage = toast.querySelector(".text-2");
+    const toastIcon = toast.querySelector(".check");
+
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+
+    if (type === "success") {
+        toastIcon.className = "fas fa-solid fa-check check";
+        toastIcon.style.backgroundColor = "#4070f4";
+    } else if (type === "error") {
+        toastIcon.className = "fas fa-solid fa-xmark check";
+        toastIcon.style.backgroundColor = "#f44336";
+    }
+
+    toast.classList.add("active");
+    document.querySelector(".progress").classList.add("active");
+
+    setTimeout(() => {
+        toast.classList.remove("active");
+    }, 5000);
+
+    setTimeout(() => {
+        document.querySelector(".progress").classList.remove("active");
+    }, 5300);
+}
+
+document.querySelector(".close").addEventListener("click", () => {
+    const toast = document.querySelector(".toast");
+    toast.classList.remove("active");
+    setTimeout(() => {
+        document.querySelector(".progress").classList.remove("active");
+    }, 300);
 });

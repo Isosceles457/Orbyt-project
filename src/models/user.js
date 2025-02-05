@@ -22,7 +22,7 @@ const horarioSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String },
     nombres: { type: String, required: true },
     apellidos: { type: String, required: true },
     fechaNacimiento: { type: Date, required: true },

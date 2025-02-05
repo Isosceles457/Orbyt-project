@@ -1,4 +1,4 @@
-document.getElementById("registerForm").addEventListener("submit", async function(event) {
+document.getElementById("registerForm").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
     let emailInput = document.querySelector("input[name='username']");

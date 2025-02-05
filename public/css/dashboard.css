@@ -23,25 +23,36 @@ header {
 
 header .bienvenida {
     font-size: 24px;
+    font-weight: bold;
 }
 
 header .botones a {
     text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+header .botones a:hover {
+    color: #9258ea;
 }
 
 header .botones button {
-    background: linear-gradient(135deg, #360e8e, #9B6DAB);
+    background:  #9258ea;
     color: white;
     padding: 8px 20px;
     text-decoration: none;
     font-size: 14px;
-    border-radius: 25px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    border: none;
+    border: 1px solid #9258ea;
+    border-radius: 1rem;
 }
 
 header .botones button:hover {
-    background-color: #0066cc;
+    background-color: #460ba1;
     transform: scale(1.1);
 }
 

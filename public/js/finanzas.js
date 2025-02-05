@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const modalButtons = document.querySelectorAll("button[data-target]");
     const closeButtons = document.querySelectorAll(".modal-close");
-    
+
     modalButtons.forEach(button => {
         button.addEventListener("click", function () {
-            const targetId = this.getAttribute("data-target"); // Obtener el valor correcto de data-target
+            const targetId = this.getAttribute("data-target");
             const targetModal = document.getElementById(targetId);
             if (targetModal) {
                 targetModal.classList.add("active");
@@ -20,47 +20,83 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const ctx = document.getElementById('myChart');
-const monthSelector = document.getElementById('monthSelector');
 let chart = null;
+let sueldoBase = 0;
 
-monthSelector.addEventListener('change', async () => {
-    const selectedMonth = monthSelector.value;
-    const year = new Date().getFullYear(); // Año actual
+document.getElementById('formSueldoBase').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    sueldoBase = parseFloat(document.getElementById('sueldoBase').value);
+    document.getElementById('sueldoMensual').innerText = sueldoBase;
+    alert('Sueldo base guardado exitosamente');
+    updateChart();
+});
 
-    // Obtener los datos del backend (MongoDB)
-    const response = await fetch(`/api/finanzas/${selectedMonth}/${year}`);
+document.getElementById('formIngresos').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const monto = parseFloat(document.getElementById('montoIngreso').value);
+    const categoria = document.getElementById('categoriaIngreso').value;
+    const descripcion = document.getElementById('descripcionIngreso').value;
+
+    const response = await fetch('/api/finanzas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tipo: 'ganancia', monto, categoria, descripcion })
+    });
+
+    if (response.ok) {
+        alert('Ingreso agregado exitosamente');
+        updateChart();
+    } else {
+        alert('Error al agregar el ingreso');
+    }
+});
+
+document.getElementById('formGastos').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const monto = parseFloat(document.getElementById('montoGasto').value);
+    const categoria = document.getElementById('categoriaGasto').value;
+    const descripcion = document.getElementById('descripcionGasto').value;
+
+    const response = await fetch('/api/finanzas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tipo: 'gasto', monto, categoria, descripcion })
+    });
+
+    if (response.ok) {
+        alert('Gasto agregado exitosamente');
+        updateChart();
+    } else {
+        alert('Error al agregar el gasto');
+    }
+});
+
+async function updateChart() {
+    const response = await fetch('/api/finanzas');
     const transactions = await response.json();
 
-    // Separar las ganancias y los gastos
     const ingresos = transactions.filter(t => t.tipo === 'ganancia').map(t => t.monto);
     const gastos = transactions.filter(t => t.tipo === 'gasto').map(t => t.monto);
 
-    // Crear la gráfica
+    const totalIngresos = ingresos.reduce((acc, val) => acc + val, 0);
+    const totalGastos = gastos.reduce((acc, val) => acc + val, 0);
+    const saldoFinal = sueldoBase + totalIngresos - totalGastos;
+
     if (chart) {
-        chart.destroy(); // Destruir la gráfica anterior
+        chart.destroy();
     }
 
     chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Ganancias', 'Gastos'],
+            labels: ['Sueldo Base', 'Ingresos Extras', 'Gastos', 'Saldo Final'],
             datasets: [{
-                label: 'Ganancias',
-                data: [ingresos.reduce((acc, val) => acc + val, 0), 0],
-                backgroundColor: 'green',
-                borderColor: 'darkgreen',
-                borderWidth: 1.5
-            },
-            {
-                label: 'Gastos',
-                data: [0, gastos.reduce((acc, val) => acc + val, 0)],
-                backgroundColor: 'red',
-                borderColor: 'darkred',
+                label: 'Finanzas',
+                data: [sueldoBase, totalIngresos, totalGastos, saldoFinal],
+                backgroundColor: ['blue', 'green', 'red', 'purple'],
+                borderColor: ['darkblue', 'darkgreen', 'darkred', 'darkpurple'],
                 borderWidth: 1.5
             }]
         }
     });
-});
-
-// Cargar los datos al cargar la página
-monthSelector.dispatchEvent(new Event('change'));
+}

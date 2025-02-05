@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: #f1f1f1;
 }
 
 header {
@@ -18,7 +19,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10%; 
+    height: 10%;
 }
 
 header .bienvenida {
@@ -28,7 +29,6 @@ header .bienvenida {
     transform: translateX(-50%);
     font-size: 24px;
     text-align: center;
-    margin: auto;
 }
 
 header .dashboard-link a {
@@ -41,7 +41,6 @@ header .dashboard-link a {
 header .dashboard-link .back-arrow {
     font-size: 24px;
     margin-right: 8px;
-    transition: transform 0.3s ease;
 }
 
 header .dashboard-link:hover a {
@@ -58,20 +57,20 @@ main {
     align-items: center;
     justify-content: center;
     background: #6D5ACF;
-    height: 100%; 
+    flex-grow: 1;
 }
 
 .controls-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 90%;
-    margin: 10px auto 0 auto; /* Reducir margen superior */
+    margin: 10px auto;
     position: relative;
-    top: -35%; /* Empujar hacia arriba */
 }
 
-.add-income-btn, .add-expense-btn {
+.set-base-salary-btn,
+.add-income-btn,
+.add-expense-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -80,60 +79,41 @@ main {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.add-income-btn {
-    background-color: rgb(5, 172, 5);
-    color: white;
-    position: absolute;
-    left: 0;
+.set-base-salary-btn {
+    background-color: #4A90E2;
 }
 
-.add-income-btn:hover{
-    transform: scale(1.1);
-    background-color: rgb(4, 223, 4) ;
+.set-base-salary-btn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.add-income-btn {
+    background-color: #5cb85c;
+}
+
+.add-income-btn:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
 }
 
 .add-expense-btn {
-    background-color: rgb(204, 0, 0);
-    color: white;
-    position: absolute;
-    right: 0;
+    background-color: #d9534f;
 }
 
 .add-expense-btn:hover {
-    transform: scale(1.1);
-    background-color: rgb(255, 0, 0)
+    background-color: #c9302c;
+    transform: scale(1.05);
 }
 
-.month-selector-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#monthSelector {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #360e8e;
-    color: #fff;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-#monthSelector:hover{
-    transform: scale(1.1);
-}
-
-canvas {
-    max-width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+.salary-display {
+    margin-top: 20px;
 }
 
 #myChart {
-    max-height: 15%;
-    max-width: 90%;
-    margin-left: 7%;
+    margin-top: 20px;
+    width: 90%;
+    height: 300px;
 }
 
 .modal {
@@ -150,17 +130,15 @@ canvas {
 }
 
 .modal-content {
-    color: #fff;
+    color: #360e8e;
     background-color: #2b005c;
     padding: 20px;
-    border: solid 15px #fff;
+    border: solid 10px #fff;
     border-radius: 15px;
-    width: 100%;
     max-width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
 }
 
 .modal-header {
@@ -169,26 +147,23 @@ canvas {
     margin-bottom: 10px;
 }
 
-.modal.active {
-    display: flex;
+.modal-footer {
+    margin-top: 10px;
 }
 
 .modal-close {
-    margin-top: 10px;
     background-color: red;
     color: white;
-    border: none;
     padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.2s ease;
 }
 
 .modal-close:hover {
     background-color: #cc0000;
-    transform: scale(1.1);
-    opacity: 0.9;
+    transform: scale(1.05);
 }
 
 form {
@@ -196,13 +171,10 @@ form {
     flex-direction: column;
     gap: 15px;
     width: 100%;
-    align-items: flex-start;
-    margin-top: 15px;
 }
 
 form input[type="text"],
 form input[type="number"] {
-    width: 80%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -213,44 +185,71 @@ button[type="submit"] {
     background-color: #004080;
     color: white;
     padding: 10px 20px;
-    margin: auto;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
     width: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button[type="submit"]:hover {
     background-color: #56e414;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-#mesIngreso, #mesGasto {
+#mesIngreso,
+#mesGasto {
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: #fff;
-    width: 80%; /* Ajusta el ancho según lo necesites */
-    margin-top: 10px; /* Espaciado entre los elementos */
+    width: 80%;
+    margin-top: 10px;
 }
 
-/* Estilo para los select de los modales al estar enfocados */
-#mesIngreso:focus, #mesGasto:focus {
+#mesIngreso:focus,
+#mesGasto:focus {
     outline: none;
-    border-color: #004080; /* Color de borde cuando esté enfocado */
-    box-shadow: 0 0 5px rgba(0, 64, 128, 0.5); /* Sombra sutil */
+    border-color: #004080;
+    box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
 }
 
-/* Estilo de las opciones del select */
-#mesIngreso option, #mesGasto option {
+#mesIngreso option,
+#mesGasto option {
     background-color: #fff;
     color: #333;
 }
 
-/* Estilo para los select en los modales cuando se pasa el cursor */
-#mesIngreso:hover, #mesGasto:hover {
+#mesIngreso:hover,
+#mesGasto:hover {
     background-color: #f4f4f4;
+}
+/* Estilos básicos para los modales */
+
+
+/* Estilo para cuando el modal está activo */
+.modal.active {
+    display: flex;
+    /* Se muestra como un bloque de tipo flex cuando tiene la clase active */
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 80%;
+}
+
+/* Otros estilos (opcional) */
+.modal-header,
+.modal-footer {
+    padding: 10px;
+}
+
+.modal-close {
+    cursor: pointer;
+    font-size: 18px;
 }
